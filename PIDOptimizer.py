@@ -17,20 +17,6 @@ import math
 # Common imports
 import numpy as np
 import os
-from sklearn.datasets import fetch_california_housing
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-
-housing = fetch_california_housing()
-X_train_full, X_test, y_train_full, y_test = train_test_split(
-    housing.data, housing.target.reshape(-1, 1), random_state=42)
-X_train, X_valid, y_train, y_valid = train_test_split(
-    X_train_full, y_train_full, random_state=42)
-
-scaler = StandardScaler()
-X_train_scaled = scaler.fit_transform(X_train)
-X_valid_scaled = scaler.transform(X_valid)
-X_test_scaled = scaler.transform(X_test)
 
 class PIDOptimizer(keras.optimizers.Optimizer):
     def __init__(self, learning_rate=0.001, momentum= 0.0,
